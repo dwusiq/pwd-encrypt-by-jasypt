@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'com.wusiq'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven {
+        url "http://maven.aliyun.com/nexus/content/groups/public/"
+    }
+    mavenCentral()
+}
+
+def springboot_version="2.1.2.RELEASE"
+List springboot = [
+        "org.springframework.boot:spring-boot-starter-web:$springboot_version",
+        "org.springframework.boot:spring-boot-starter-data-jpa:$springboot_version"
+]
+dependencies {
+    compile "com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.0"
+    compile "mysql:mysql-connector-java:8.0.13"
+    compile "org.projectlombok:lombok:1.18.4"
+    compile springboot
+    testCompile "org.springframework.boot:spring-boot-starter-test:2.1.2.RELEASE"
+}
